@@ -1,0 +1,13 @@
+<h2>Receptek</h2>
+
+<div>
+  <input [(ngModel)]="newRecipeTitle" placeholder="Új recept címe" />
+  <button (click)="addRecipe()">Hozzáadás</button>
+</div>
+
+<ul>
+  <li *ngFor="let recipe of recipes$ | async">
+    {{ recipe.title }}
+    <button (click)="deleteRecipe(recipe.id)">Törlés</button>
+  </li>
+</ul>

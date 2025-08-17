@@ -1,0 +1,8 @@
+<div *ngIf="user; else notLoggedIn">
+  <p>Üdv, {{ user.displayName }}!</p>
+  <button (click)="logout()">Kijelentkezés</button>
+</div>
+
+<ng-template #notLoggedIn>
+  <button (click)="loginWithGoogle()">Bejelentkezés Google-lal</button>
+</ng-template>
