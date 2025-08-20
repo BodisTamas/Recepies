@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [HeaderComponent, CommonModule, RouterOutlet, RouterLink] // Ne importáld a RouterOutlet-et
+    imports: [HeaderComponent, CommonModule, RouterOutlet] // Ne importáld a RouterOutlet-et
 })
 export class AppComponent {
   title = 'Recepies';

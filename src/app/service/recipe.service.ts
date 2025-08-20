@@ -3,7 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Recipe } from '../model/recipe.model';
 import { Observable } from 'rxjs';
 
-import { Firestore, collection, collectionData, doc, addDoc, deleteDoc } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, doc, addDoc, deleteDoc, docData } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +22,12 @@ export class RecipeService {
   getRecipes() : Observable<Recipe[]> {
     const recipeCollection = collection(this.firestore, 'recipes');
     return collectionData(recipeCollection, { idField: 'id' }) as Observable<Recipe[]>;
+  }
+
+  // Egy recept lekérése ID alapján
+  getRecipeById(id: string): Observable<Recipe> {
+    const recipeDoc = doc(this.firestore, `${this.collectionName}/${id}`);
+    return docData(recipeDoc, { idField: 'id' }) as Observable<Recipe>;
   }
 
   // Recept frissítése
