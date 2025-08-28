@@ -37,6 +37,7 @@ export class RecipeService {
 
   // Recept törlése
   deleteRecipe(id: string) {
-    //return this.firestore.collection(this.collectionName).doc(id).delete();
+    const recipeDoc = doc(this.firestore, `recipes/${id}`);
+    deleteDoc(recipeDoc).catch(err => console.error(err));
   }
 }

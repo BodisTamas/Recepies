@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [];
+  isInDeleteMode: boolean = false;
 
   constructor(private recipeService: RecipeService, private router: Router) {}
 
@@ -23,5 +24,19 @@ export class RecipeListComponent implements OnInit {
 
   openRecipe(recipe: Recipe) {
     this.router.navigate(['/recipe', recipe.id]);
+  }
+
+  newRecipe() {
+    this.router.navigate(['/recipe']);
+  }
+
+  toggleDeleteMode() {
+    this.isInDeleteMode = !this.isInDeleteMode;
+  }
+
+  deleteRecipe(recipe: Recipe) {
+    if (recipe.id) {
+      this.recipeService.deleteRecipe(recipe.id);
+    }
   }
 }

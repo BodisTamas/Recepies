@@ -15,6 +15,6 @@ export class HomeComponent {
 
   // Additional methods can be added here if needed
   toRecipes() {
-    this.router.navigate(['/recipes']);
+    this.router.navigate(['/recipe-list']);
   }
 }

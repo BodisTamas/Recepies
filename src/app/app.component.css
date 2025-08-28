@@ -5,3 +5,9 @@
 .card:hover {
   background-color: #f0f0f0;
 }
+
+.footer {
+  background-color: #011233;
+  color: white;
+  text-align: right;
+}
